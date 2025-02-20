@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
             </Link>
             <nav className={styles.linksContainer}>
                 <LinkButton buttonType={"menu"} link={'/coins'}>Coins</LinkButton>
-                <LinkButton buttonType={"menu"} link={'/cryptocurrency/Bitcoin'}>Bitcoin</LinkButton>
+                <LinkButton buttonType={"menu"} link={'/cryptocurrency/BTC'}>Bitcoin</LinkButton>
                 <LinkButton buttonType={"menu"} link={'/'}>Graphics</LinkButton>
             </nav>
         </header>

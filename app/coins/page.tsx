@@ -11,7 +11,7 @@ const Coins = async () => {
             <section className={styles.mainContainer}>
                 {coins.map( e => {
                     return(
-                        <LinkButton buttonType={'cryptoMenu'} link={`/cryptocurrency/${e.name}`} key={e.name}>
+                        <LinkButton buttonType={'cryptoMenu'} link={`/cryptocurrency/${e.symbol}`} key={e.name}>
                             {e.name}
                         </LinkButton>
                     )

@@ -5,7 +5,7 @@ import getCoin from "@/app/api/getCoin";
 export default async function Home() {
 
     const coins = await getCoin()
-    const bestCoins = [coins[0].name, coins[1].name, coins[2].name]
+    const bestCoins = [coins[0], coins[1], coins[2]]
 
 
     return (
@@ -26,8 +26,8 @@ export default async function Home() {
                <section className={styles.popularCrypto}>
                    {bestCoins.map( (item) => {
                        return(
-                           <LinkButton buttonType={'cryptoMenu'} link={`/cryptocurrency/${item}`} key={item} svg={true}>
-                               {item}
+                           <LinkButton buttonType={'cryptoMenu'} link={`/cryptocurrency/${item.symbol}`} key={item.name} svg={true}>
+                               {item.name}
                            </LinkButton>
                        )
                    } )}

@@ -1,14 +1,20 @@
-import styles from './page.module.css'
+import styles from "@/app/cryptocurrency/[id]/page.module.css";
 import getCoin from "@/app/api/getCoin";
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
-    const id = await params
+    const paramsRes = await params
+    const id = paramsRes.id
+    const coin = await getCoin(id)
+    console.log(id)
 
-    const res = await getCoin(id.id)
-    if (res != undefined) {
-        const coin = res
-        return(
+
+    if (!coin) {
+        return (
+            <h1>Coin not found</h1>
+        )
+    }
+    return(
             <section className={styles.rootContainer}>
                 <section className={styles.mainContainer}>
                     <h1 className={styles.coinName}>
@@ -27,15 +33,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     </article>
                 </section>
             </section>
-        )
-    } else {
-        return (
-            <h1>
-                Wrong coin name!
-            </h1>
-        )
-    }
-
+    )
 
 }
 
